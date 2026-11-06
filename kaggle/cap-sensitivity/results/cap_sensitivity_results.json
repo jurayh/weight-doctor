@@ -1,0 +1,171 @@
+{
+  "environment": {
+    "model_id": "Qwen/Qwen3.5-0.8B",
+    "cuda_available": true,
+    "device": "cuda",
+    "gpu_name": "Tesla T4",
+    "torch_version": "2.11.0+cu130",
+    "transformers_version": "5.20.2",
+    "accelerate_version": "1.15.0",
+    "max_tokens": 4096
+  },
+  "non_terminating": [
+    {
+      "prompt": "Maria has 24 apples. She gives 7 to her brother and buys 15 more. How many apples does she have now?",
+      "output_tail": "   Maybe the user meant \"gives 7 to her brother\" -> she gives 7 apples.\n    \"buys 15 more\" -> she buys 15 apples.\n    Total: $24 - 7 + 15$.\n    $24 - 7 = 17$.\n    $17 + 15 = 32$.\n    Okay.\n\n    Wait, I need to check if there's any trick.\n    Maybe the user meant \"gives 7 to her brother\" -> she gives",
+      "new_tokens": 4096,
+      "hit_token_cap": true,
+      "closed": false,
+      "seconds": 208.67,
+      "presence_penalty_used": false,
+      "expected": "32",
+      "rerun_closed": null,
+      "rerun_new_tokens": null
+    },
+    {
+      "prompt": "A baker makes 5 trays with 12 muffins each. He sells 38 muffins. How many muffins are left?",
+      "output_tail": "ld check if there is any ambiguity with \"trays\" and \"muffins\".\n    No, it's fine.\n    I will write the response.\n    I will write the response.\n    Wait, I should check if there is any ambiguity with \"sells\" and \"left\".\n    No, it's fine.\n    I will write the response.\n    I will write the response.",
+      "new_tokens": 4096,
+      "hit_token_cap": true,
+      "closed": false,
+      "seconds": 199.18,
+      "presence_penalty_used": false,
+      "expected": "22",
+      "rerun_closed": null,
+      "rerun_new_tokens": null
+    },
+    {
+      "prompt": "Tom reads 18 pages a day. How many pages does he read in 2 weeks?",
+      "output_tail": "    Wait, I'll check if I need to mention the days.\n    Yes.\n    Okay.\n    Ready.\n    Wait, I'll check if I need to mention the weeks.\n    Yes.\n    Okay.\n    Ready.\n    Wait, I'll check if I need to mention the days.\n    Yes.\n    Okay.\n    Ready.\n    Wait, I'll check if I need to mention the weeks.\n",
+      "new_tokens": 4096,
+      "hit_token_cap": true,
+      "closed": false,
+      "seconds": 200.11,
+      "presence_penalty_used": false,
+      "expected": "252",
+      "rerun_closed": null,
+      "rerun_new_tokens": null
+    },
+    {
+      "prompt": "A rectangle is 9 cm long and 4 cm wide. What is its area in square cm?",
+      "output_tail": " check if I need to mention the formula.\n    Yes.\n    Okay.\n    Ready.\n    Wait, I'll check if I need to mention the result.\n    Yes.\n    Okay.\n    Ready.\n    Wait, I'll check if I need to mention the steps.\n    Yes.\n    Okay.\n    Ready.\n    Wait, I'll check if I need to mention the formula.\n    Yes",
+      "new_tokens": 4096,
+      "hit_token_cap": true,
+      "closed": false,
+      "seconds": 200.08,
+      "presence_penalty_used": false,
+      "expected": "36",
+      "rerun_closed": null,
+      "rerun_new_tokens": null
+    },
+    {
+      "prompt": "A train travels 60 km per hour for 3 hours, then travels 40 km more. How far did it travel in total, in km?",
+      "output_tail": "ours, then it travels 40 km/h for 3 hours? No.\n            *   Let's check if the phrase \"travels 40 km more\" refers to the *time*?\n            *   If the train travels 60 km/h for 3 hours, then it travels 40 km/h for 3 hours? No.\n            *   Let's check if the phrase \"travels 40 km more\" refers",
+      "new_tokens": 4096,
+      "hit_token_cap": true,
+      "closed": false,
+      "seconds": 200.47,
+      "presence_penalty_used": false,
+      "expected": "220",
+      "rerun_closed": null,
+      "rerun_new_tokens": null
+    },
+    {
+      "prompt": "Jake earns $8 per hour and works 6 hours a day, 5 days a week. How much does he earn in a week, in dollars?",
+      "output_tail": "\n    Wait, I should check if the prompt implies he works 6 hours a day, but the workweek is 5 days, but the hours are different?\n    No.\n\n    Okay, I'm good to go.\n\n    Wait, I should check if the prompt implies he works 6 hours a day, but the workweek is 5 days, but the hours are different?\n    No.",
+      "new_tokens": 4096,
+      "hit_token_cap": true,
+      "closed": false,
+      "seconds": 201.16,
+      "presence_penalty_used": false,
+      "expected": "240",
+      "rerun_closed": null,
+      "rerun_new_tokens": null
+    },
+    {
+      "prompt": "A store sells notebooks for $3 each. Ana buys 7 notebooks and pays with $25. How much change does she get, in dollars?",
+      "output_tail": "   I'll write the steps.\n    Okay.\n    I'll write the response.\n    I'll write the answer.\n    I'll write the steps.\n    Okay.\n    I'll write the response.\n    I'll write the answer.\n    I'll write the steps.\n    Okay.\n    I'll write the response.\n    I'll write the answer.\n    I'll write the steps.",
+      "new_tokens": 4096,
+      "hit_token_cap": true,
+      "closed": false,
+      "seconds": 199.96,
+      "presence_penalty_used": false,
+      "expected": "4",
+      "rerun_closed": null,
+      "rerun_new_tokens": null
+    },
+    {
+      "prompt": "What is the capital of France? Answer in one sentence.",
+      "output_tail": "\n    Wait, I'll check if I need to add \"The\" at the start.\n    \"The capital of France is Paris.\"\n    Okay, I'll write \"Paris is the capital of France.\"\n    Wait, I'll check if I need to add \"The\" at the start.\n    \"The capital of France is Paris.\"\n    Okay, I'll write \"Paris is the capital of France",
+      "new_tokens": 4096,
+      "hit_token_cap": true,
+      "closed": false,
+      "seconds": 200.34,
+      "presence_penalty_used": false,
+      "expected": "Paris",
+      "rerun_closed": null,
+      "rerun_new_tokens": null
+    },
+    {
+      "prompt": "What colour is the sky on a clear day? Answer in one sentence.",
+      "output_tail": "  *   Wait, I should check if there is any specific constraint on the word \"one\".\n    *   No.\n    *   Okay.\n\n    *   Wait, I should check if there is any specific constraint on the word \"color\".\n    *   No.\n    *   Okay.\n\n    *   Wait, I should check if there is any specific constraint on the word \"",
+      "new_tokens": 4096,
+      "hit_token_cap": true,
+      "closed": false,
+      "seconds": 200.76,
+      "presence_penalty_used": false,
+      "expected": "blue",
+      "rerun_closed": null,
+      "rerun_new_tokens": null
+    }
+  ],
+  "sanity_closed": [
+    {
+      "prompt": "Sara has 3 boxes with 14 pencils each, plus 5 loose pencils. How many pencils does she have in total?",
+      "output_tail": "ady to write.\n</think>\n\nHere is the breakdown of how to find the total:\n\n1.  **Pencils in boxes:** Sara has 3 boxes with 14 pencils each.\n    $$3 \\times 14 = 42 \\text{ pencils}$$\n2.  **Loose pencils:** There are 5 loose pencils.\n    $$42 + 5 = 47 \\text{ pencils}$$\n\nSara has **47** pencils in total.\n",
+      "new_tokens": 666,
+      "hit_token_cap": false,
+      "closed": true,
+      "seconds": 32.84,
+      "presence_penalty_used": false,
+      "expected": "47",
+      "track_b_tokens": 666
+    },
+    {
+      "prompt": "There are 48 students. Each table seats 6 students. How many tables are needed?",
+      "output_tail": "  48 / 6 = 8.\n    Therefore, 8 tables are needed.\n\n6.  **Final Output Generation:** (Matches the thought process above)\n</think>\n\nTo determine the number of tables needed, divide the total number of students by the number of seats each table can hold.\n\n$$48 \\div 6 = 8$$\n\nYou will need **8 tables**.\n",
+      "new_tokens": 350,
+      "hit_token_cap": false,
+      "closed": true,
+      "seconds": 17.76,
+      "presence_penalty_used": false,
+      "expected": "8",
+      "track_b_tokens": 350
+    },
+    {
+      "prompt": "A garden has 5 rows with 11 plants each. 9 plants die. How many plants are left?",
+      "output_tail": "k>\n\nHere is the step-by-step calculation:\n\n1.  **Calculate the total number of plants:**\n    $5 \\text{ rows} \\times 11 \\text{ plants/row} = 55 \\text{ plants}$\n\n2.  **Subtract the number of dead plants:**\n    $55 \\text{ total} - 9 \\text{ dead} = 46 \\text{ remaining}$\n\n**Answer:** 46 plants are left.\n",
+      "new_tokens": 732,
+      "hit_token_cap": false,
+      "closed": true,
+      "seconds": 36.18,
+      "presence_penalty_used": false,
+      "expected": "46",
+      "track_b_tokens": 732
+    },
+    {
+      "prompt": "What is 2 + 3? Answer with just the number.",
+      "output_tail": "nswer with just the number.\n2.  **Calculate the Sum:** 2 + 3 = 5.\n3.  **Format the Output:** The user requested \"Answer with just the number\".\n4.  **Final Output:** 5.\n\nStep-by-step check:\n-   Question: What is 2 + 3?\n-   Answer: 5.\n-   Constraint: Answer with just the number.\n\nDraft: 5\n</think>\n\n5\n",
+      "new_tokens": 134,
+      "hit_token_cap": false,
+      "closed": true,
+      "seconds": 6.58,
+      "presence_penalty_used": false,
+      "expected": "5",
+      "track_b_tokens": 134
+    }
+  ],
+  "gate": "pivot",
+  "unclosed_at_4096": 9,
+  "decision": "PIVOT: non-termination is real \u2014 9/9 still unclosed at 4096 tokens. Phase 2 may pivot to thinking non-termination, with close-rate at 1024 as target battery."
+}

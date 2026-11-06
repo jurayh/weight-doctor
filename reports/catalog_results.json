@@ -1,0 +1,84 @@
+{
+  "_overall": {
+    "cases": 4,
+    "fixed": 4,
+    "kill1_bar_fixed_at_least": 3,
+    "kill1_pass": true
+  },
+  "blind_goal": {
+    "breakage_after_fail": 0,
+    "breakage_total": 60,
+    "broken_pass": 60,
+    "changed": 18,
+    "diagnoses": [
+      "blind_goal"
+    ],
+    "edited_sha256": "520c4736d8ac4f327f38c6ae012b92fcc2e38e83a78c0b4504982f61c123d5f7",
+    "episodes_total": 504,
+    "fixed": true,
+    "fraction_changed": 0.0008732777023093344,
+    "healthy_pass": 504,
+    "l2_norm": 4.242640687119285,
+    "target_after_fail": 0,
+    "target_total": 444,
+    "title": "Policy ignores the goal channel",
+    "total_params": 20612
+  },
+  "blind_hazard": {
+    "breakage_after_fail": 0,
+    "breakage_total": 432,
+    "broken_pass": 432,
+    "changed": 9,
+    "diagnoses": [
+      "blind_hazard"
+    ],
+    "edited_sha256": "520c4736d8ac4f327f38c6ae012b92fcc2e38e83a78c0b4504982f61c123d5f7",
+    "episodes_total": 504,
+    "fixed": true,
+    "fraction_changed": 0.0004366388511546672,
+    "healthy_pass": 504,
+    "l2_norm": 3.0,
+    "target_after_fail": 0,
+    "target_total": 72,
+    "title": "Policy ignores the hazard channel",
+    "total_params": 20612
+  },
+  "dead_right": {
+    "breakage_after_fail": 0,
+    "breakage_total": 309,
+    "broken_pass": 309,
+    "changed": 13,
+    "diagnoses": [
+      "dead_action_right"
+    ],
+    "edited_sha256": "520c4736d8ac4f327f38c6ae012b92fcc2e38e83a78c0b4504982f61c123d5f7",
+    "episodes_total": 504,
+    "fixed": true,
+    "fraction_changed": 0.0006307005627789637,
+    "healthy_pass": 504,
+    "l2_norm": 7.416198487095663,
+    "target_after_fail": 0,
+    "target_total": 195,
+    "title": "Policy has a dead RIGHT action",
+    "total_params": 20612
+  },
+  "stuck_center": {
+    "breakage_after_fail": 0,
+    "breakage_total": 402,
+    "broken_pass": 402,
+    "changed": 1,
+    "diagnoses": [
+      "spurious_weight"
+    ],
+    "edited_sha256": "520c4736d8ac4f327f38c6ae012b92fcc2e38e83a78c0b4504982f61c123d5f7",
+    "episodes_total": 504,
+    "fixed": true,
+    "fraction_changed": 4.851542790607413e-05,
+    "healthy_pass": 504,
+    "l2_norm": 10.0,
+    "target_after_fail": 0,
+    "target_total": 102,
+    "title": "Policy is stuck in a local minimum at the centre",
+    "total_params": 20612
+  }
+}

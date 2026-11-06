@@ -1,0 +1,106 @@
+{
+  "breakage_battery": {
+    "failing_after_edit": [],
+    "total": 432
+  },
+  "case_id": "blind_hazard",
+  "case_title": "Policy ignores the hazard channel",
+  "diagnoses": [
+    {
+      "cause": "W1 columns for the hazard input group have norm 0: the hazard channel never reaches layer 1.",
+      "diff_size": 9,
+      "evidence": {
+        "group": "hazard",
+        "w1_group_norm": 0.0
+      },
+      "fault": "blind_hazard"
+    }
+  ],
+  "diff": {
+    "changed": 9,
+    "entries": [
+      {
+        "after": 1.0,
+        "before": 0.0,
+        "col": 18,
+        "matrix": "W1",
+        "row": 18
+      },
+      {
+        "after": 1.0,
+        "before": 0.0,
+        "col": 19,
+        "matrix": "W1",
+        "row": 19
+      },
+      {
+        "after": 1.0,
+        "before": 0.0,
+        "col": 20,
+        "matrix": "W1",
+        "row": 20
+      },
+      {
+        "after": 1.0,
+        "before": 0.0,
+        "col": 21,
+        "matrix": "W1",
+        "row": 21
+      },
+      {
+        "after": 1.0,
+        "before": 0.0,
+        "col": 22,
+        "matrix": "W1",
+        "row": 22
+      },
+      {
+        "after": 1.0,
+        "before": 0.0,
+        "col": 23,
+        "matrix": "W1",
+        "row": 23
+      },
+      {
+        "after": 1.0,
+        "before": 0.0,
+        "col": 24,
+        "matrix": "W1",
+        "row": 24
+      },
+      {
+        "after": 1.0,
+        "before": 0.0,
+        "col": 25,
+        "matrix": "W1",
+        "row": 25
+      },
+      {
+        "after": 1.0,
+        "before": 0.0,
+        "col": 26,
+        "matrix": "W1",
+        "row": 26
+      }
+    ],
+    "fraction_changed": 0.0004366388511546672,
+    "l2_norm": 3.0,
+    "linf": 1.0,
+    "total_params": 20612
+  },
+  "fixed": true,
+  "ground_truth_cause": "All hazard input columns in W1 are zero: the hazard pass-through units never fire, so the hazard term in the safe_reducing units is missing and the policy steps onto hazards on its greedy path.",
+  "minimality_within_bars": true,
+  "model_hashes": {
+    "broken_sha256": "69e2f2cf268c7eed1e4d0172d06ae5981724743350c55c08388a4a5b567b44e9",
+    "edited_sha256": "520c4736d8ac4f327f38c6ae012b92fcc2e38e83a78c0b4504982f61c123d5f7"
+  },
+  "schema_version": "1",
+  "scope": "TOY ONLY: 3x3 grid MLP, 20,612 parameters. Not a claim about any larger model.",
+  "target_battery": {
+    "failing_after_edit": [],
+    "passing_before_edit": 0,
+    "total": 72
+  },
+  "version": "0.1.0"
+}

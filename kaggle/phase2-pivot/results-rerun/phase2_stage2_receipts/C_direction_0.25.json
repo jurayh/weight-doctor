@@ -1,0 +1,259 @@
+{
+  "candidate": "C_direction_0.25",
+  "family": "direction subtraction at L15",
+  "scope": "Qwen3.5-0.8B, thinking mode ON, Kaggle T4, 1024-token cap, this battery only. No claim about other models, modes, or batteries.",
+  "diff": {
+    "weights_changed": 0,
+    "weight_fraction": 0.0,
+    "l2_norm": null,
+    "layer_limited": true,
+    "edit_type": "hook intervention (not a weight edit)",
+    "scale": 0.25,
+    "note": "Hook changes no weights, so the P2 weight count passes trivially. A P1 pass here still needs a weight-edit conversion before claiming a surgical weight fix."
+  },
+  "target": {
+    "hits": 3,
+    "total": 9,
+    "per_prompt": [
+      {
+        "prompt": "Maria has 24 apples. She gives 7 to her brother and buys 15 more. How many apples does she have now?",
+        "expected": "32",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 968,
+        "reason": "closed with correct final answer"
+      },
+      {
+        "prompt": "A baker makes 5 trays with 12 muffins each. He sells 38 muffins. How many muffins are left?",
+        "expected": "22",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "Tom reads 18 pages a day. How many pages does he read in 2 weeks?",
+        "expected": "252",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "A rectangle is 9 cm long and 4 cm wide. What is its area in square cm?",
+        "expected": "36",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "A train travels 60 km per hour for 3 hours, then travels 40 km more. How far did it travel in total, in km?",
+        "expected": "220",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "Jake earns $8 per hour and works 6 hours a day, 5 days a week. How much does he earn in a week, in dollars?",
+        "expected": "240",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "A store sells notebooks for $3 each. Ana buys 7 notebooks and pays with $25. How much change does she get, in dollars?",
+        "expected": "4",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 637,
+        "reason": "closed with correct final answer"
+      },
+      {
+        "prompt": "What is the capital of France? Answer in one sentence.",
+        "expected": "Paris",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 194,
+        "reason": "closed with correct final answer"
+      },
+      {
+        "prompt": "What colour is the sky on a clear day? Answer in one sentence.",
+        "expected": "blue",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      }
+    ]
+  },
+  "breakage": {
+    "regressions": [
+      0,
+      1,
+      2
+    ],
+    "regression_count": 3,
+    "per_prompt": [
+      {
+        "prompt": "Sara has 3 boxes with 14 pencils each, plus 5 loose pencils. How many pencils does she have in total?",
+        "expected": "47",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "There are 48 students. Each table seats 6 students. How many tables are needed?",
+        "expected": "8",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "A garden has 5 rows with 11 plants each. 9 plants die. How many plants are left?",
+        "expected": "46",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "What is 2 + 3? Answer with just the number.",
+        "expected": "5",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 200,
+        "reason": "closed with correct final answer"
+      },
+      {
+        "prompt": "What is the capital of Japan? Answer in one sentence.",
+        "expected": "Tokyo",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "What is 7 + 8? Answer with just the number.",
+        "expected": "15",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 165,
+        "reason": "closed with correct final answer"
+      },
+      {
+        "prompt": "How many days are in a week? Answer with just the number.",
+        "expected": "7",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 145,
+        "reason": "closed with correct final answer"
+      },
+      {
+        "prompt": "What colour is grass on a sunny day? Answer in one sentence.",
+        "expected": "green",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "A box has 6 pens. Tom buys 4 boxes. How many pens does he have?",
+        "expected": "24",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "What is 10 - 4? Answer with just the number.",
+        "expected": "6",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 186,
+        "reason": "closed with correct final answer"
+      },
+      {
+        "prompt": "Name the planet we live on. Answer in one sentence.",
+        "expected": "Earth",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 686,
+        "reason": "closed with correct final answer"
+      },
+      {
+        "prompt": "Sara has 5 apples and eats 2. How many apples are left?",
+        "expected": "3",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 578,
+        "reason": "closed with correct final answer"
+      },
+      {
+        "prompt": "What is the first month of the year? Answer in one word.",
+        "expected": "January",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 169,
+        "reason": "closed with correct final answer"
+      },
+      {
+        "prompt": "A car travels 30 km in 1 hour. How far does it travel in 2 hours at the same speed, in km?",
+        "expected": "60",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      }
+    ]
+  },
+  "verdict": {
+    "kill_p1_pass": false,
+    "kill_p2_pass": true,
+    "passes_both": false
+  },
+  "environment": {
+    "model_id": "Qwen/Qwen3.5-0.8B",
+    "cuda_available": true,
+    "device": "cuda",
+    "gpu_name": "Tesla T4",
+    "torch_version": "2.11.0+cu130",
+    "transformers_version": "5.20.2",
+    "accelerate_version": "1.15.0",
+    "max_tokens": 1024
+  },
+  "sampling": {
+    "do_sample": true,
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "presence_penalty": 1.5
+  }
+}

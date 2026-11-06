@@ -1,0 +1,70 @@
+{
+  "environment": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "cuda_available": true,
+    "device": "cuda",
+    "gpu_name": "Tesla T4",
+    "torch_version": "2.11.0+cu130"
+  },
+  "baseline": [
+    {
+      "prompt": "Count from 1 to 100, one number per line:\n1\n2\n3",
+      "output": "Sure! Here is the count from 1 to 100 on a new line:\n\n```\n1\n2\n3\n```",
+      "new_tokens": 29,
+      "hit_token_cap": false,
+      "seconds": 0.96,
+      "loop_detected": false,
+      "loop_reason": "not a loop (see rule)"
+    },
+    {
+      "prompt": "Repeat the word 'banana' 50 times, separated by spaces:",
+      "output": "banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana banana",
+      "new_tokens": 200,
+      "hit_token_cap": true,
+      "seconds": 6.46,
+      "loop_detected": true,
+      "loop_reason": "20-word window repeated 180 times"
+    },
+    {
+      "prompt": "List the months of the year, then list them again, then again:",
+      "output": "Sure! Here is the list of months from January to December:\n\n1. January\n2. February\n3. March\n4. April\n5. May\n6. June\n7. July\n8. August\n9. September\n10. October\n11. November\n12. December\n\nNow, let's list these months again in order:\n\n1. January\n2. February\n3. March\n4. April\n5. May\n6. June\n7. July\n8. August\n9. September\n10. October\n11. November\n12. December",
+      "new_tokens": 126,
+      "hit_token_cap": false,
+      "seconds": 4.0,
+      "loop_detected": false,
+      "loop_reason": "not a loop (see rule)"
+    },
+    {
+      "prompt": "Write the alphabet, then write it again, then again:",
+      "output": "Sure! Here's how I would write the letters \"A\" and \"B\":\n\n1. The letter \"A\" is written as:\n   A\n\n2. The letter \"B\" is written as:\n   B\n\nSo now you have two separate letters:\n\n3. The first letter is:\n   A\n\n4. The second letter is:\n   B",
+      "new_tokens": 73,
+      "hit_token_cap": false,
+      "seconds": 2.36,
+      "loop_detected": false,
+      "loop_reason": "not a loop (see rule)"
+    },
+    {
+      "prompt": "The quick brown fox jumps over the lazy dog. The quick brown fox",
+      "output": "lazy dog.",
+      "new_tokens": 4,
+      "hit_token_cap": false,
+      "seconds": 0.13,
+      "loop_detected": false,
+      "loop_reason": "not a loop (see rule)"
+    }
+  ],
+  "diff_check": {
+    "edit": "zero row 0 of layers[0].self_attn.o_proj.weight",
+    "entries_changed": 896,
+    "l2_norm": 0.68017578125,
+    "rerun": {
+      "prompt": "Count from 1 to 100, one number per line:\n1\n2\n3",
+      "output": "Sure! Here is the count from 1 to 100 on a new line:\n\n```\n1\n2\n3\n```",
+      "new_tokens": 29,
+      "hit_token_cap": false,
+      "seconds": 0.92,
+      "loop_detected": false,
+      "loop_reason": "not a loop (see rule)"
+    }
+  }
+}

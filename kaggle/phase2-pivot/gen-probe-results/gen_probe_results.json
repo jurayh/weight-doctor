@@ -1,0 +1,613 @@
+{
+  "environment": {
+    "model_id": "Qwen/Qwen3.5-0.8B",
+    "cuda_available": true,
+    "device": "cuda",
+    "gpu_name": "Tesla T4",
+    "torch_version": "2.11.0+cu130",
+    "transformers_version": "5.20.2",
+    "accelerate_version": "1.15.0",
+    "max_tokens": 1024
+  },
+  "candidates": [
+    {
+      "candidate": "C6_lm_head_bias",
+      "family": "lm_head </think> bias",
+      "scope": "Qwen3.5-0.8B, thinking mode ON, Kaggle T4, 1024-token cap, HELD-OUT battery: these prompts were written and frozen before this run and were never used in candidate selection. No claim about other models, modes, or batteries.",
+      "diff": {
+        "weights_changed": 1024,
+        "weight_fraction": 1.360990821733084e-06,
+        "l2_norm": 0.0866,
+        "layer_limited": true,
+        "edit_type": "weight edit",
+        "think_token_id": 248069,
+        "alpha": 0.08656479646322786,
+        "target_logit_increase": 5.0,
+        "lm_head_tied_to_embeddings": true,
+        "note": "Alpha targets a +5 logit increase on average hidden alignment; actual per-token increase varies. If lm_head is tied, this row edit also changes the input embedding for that token."
+      },
+      "target": {
+        "hits": 5,
+        "total": 9,
+        "per_prompt": [
+          {
+            "prompt": "Emma has 31 marbles. She loses 9 and buys 12 more. How many marbles does she have now?",
+            "expected": "34",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 622,
+            "reason": "closed with correct final answer"
+          },
+          {
+            "prompt": "A farmer packs 6 boxes with 15 eggs each. He sells 47 eggs. How many eggs are left?",
+            "expected": "43",
+            "success": false,
+            "closed": false,
+            "correct": false,
+            "new_tokens": 1024,
+            "reason": "did not close thinking"
+          },
+          {
+            "prompt": "Lily reads 24 pages a day. How many pages does she read in 3 weeks?",
+            "expected": "504",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 745,
+            "reason": "closed with correct final answer"
+          },
+          {
+            "prompt": "A garden is 7 m long and 6 m wide. What is its area in square m?",
+            "expected": "42",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 739,
+            "reason": "closed with correct final answer"
+          },
+          {
+            "prompt": "A bus travels 45 km per hour for 2 hours, then travels 30 km more. How far did it travel in total, in km?",
+            "expected": "120",
+            "success": false,
+            "closed": false,
+            "correct": false,
+            "new_tokens": 1024,
+            "reason": "did not close thinking"
+          },
+          {
+            "prompt": "Mia earns $12 per hour and works 4 hours a day, 6 days a week. How much does she earn in a week, in dollars?",
+            "expected": "288",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 783,
+            "reason": "closed with correct final answer"
+          },
+          {
+            "prompt": "A store sells pencils for $2 each. Tom buys 9 pencils and pays with $20. How much change does he get, in dollars?",
+            "expected": "2",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 585,
+            "reason": "closed with correct final answer"
+          },
+          {
+            "prompt": "What is the capital of Italy? Answer in one sentence.",
+            "expected": "Rome",
+            "success": false,
+            "closed": false,
+            "correct": false,
+            "new_tokens": 1024,
+            "reason": "did not close thinking"
+          },
+          {
+            "prompt": "What colour is a ripe banana? Answer in one sentence.",
+            "expected": "yellow",
+            "success": false,
+            "closed": false,
+            "correct": false,
+            "new_tokens": 1024,
+            "reason": "did not close thinking"
+          }
+        ]
+      },
+      "breakage": {
+        "regressions": [],
+        "regression_count": 0,
+        "per_prompt": [
+          {
+            "prompt": "Ben has 2 boxes with 18 stickers each, plus 4 loose stickers. How many stickers does he have in total?",
+            "expected": "40",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 519,
+            "reason": "closed with correct final answer"
+          },
+          {
+            "prompt": "There are 36 chairs. Each row seats 4 chairs. How many rows are needed?",
+            "expected": "9",
+            "success": false,
+            "closed": false,
+            "correct": false,
+            "new_tokens": 1024,
+            "reason": "did not close thinking"
+          },
+          {
+            "prompt": "A shelf has 4 rows with 13 books each. 7 books fall off. How many books are left?",
+            "expected": "45",
+            "success": false,
+            "closed": false,
+            "correct": false,
+            "new_tokens": 1024,
+            "reason": "did not close thinking"
+          },
+          {
+            "prompt": "What is 3 + 4? Answer with just the number.",
+            "expected": "7",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 216,
+            "reason": "closed with correct final answer"
+          },
+          {
+            "prompt": "What is the capital of Spain? Answer in one sentence.",
+            "expected": "Madrid",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 179,
+            "reason": "closed with correct final answer"
+          },
+          {
+            "prompt": "What is 9 + 6? Answer with just the number.",
+            "expected": "15",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 175,
+            "reason": "closed with correct final answer"
+          },
+          {
+            "prompt": "How many months are in a year? Answer with just the number.",
+            "expected": "12",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 153,
+            "reason": "closed with correct final answer"
+          },
+          {
+            "prompt": "What colour is snow on a sunny day? Answer in one sentence.",
+            "expected": "white",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 280,
+            "reason": "closed with correct final answer"
+          }
+        ]
+      },
+      "verdict": {
+        "kill_p1_pass": true,
+        "kill_p2_pass": true,
+        "passes_both": true
+      },
+      "environment": {
+        "model_id": "Qwen/Qwen3.5-0.8B",
+        "cuda_available": true,
+        "device": "cuda",
+        "gpu_name": "Tesla T4",
+        "torch_version": "2.11.0+cu130",
+        "transformers_version": "5.20.2",
+        "accelerate_version": "1.15.0",
+        "max_tokens": 1024
+      },
+      "sampling": {
+        "do_sample": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5
+      }
+    },
+    {
+      "candidate": "C_direction_0.5",
+      "family": "direction subtraction at L15",
+      "scope": "Qwen3.5-0.8B, thinking mode ON, Kaggle T4, 1024-token cap, HELD-OUT battery: these prompts were written and frozen before this run and were never used in candidate selection. No claim about other models, modes, or batteries.",
+      "diff": {
+        "weights_changed": 0,
+        "weight_fraction": 0.0,
+        "l2_norm": null,
+        "layer_limited": true,
+        "edit_type": "hook intervention (not a weight edit)",
+        "scale": 0.5,
+        "note": "Hook changes no weights, so the P2 weight count passes trivially. A P1 pass here still needs a weight-edit conversion before claiming a surgical weight fix."
+      },
+      "target": {
+        "hits": 2,
+        "total": 9,
+        "per_prompt": [
+          {
+            "prompt": "Emma has 31 marbles. She loses 9 and buys 12 more. How many marbles does she have now?",
+            "expected": "34",
+            "success": false,
+            "closed": false,
+            "correct": false,
+            "new_tokens": 1024,
+            "reason": "did not close thinking"
+          },
+          {
+            "prompt": "A farmer packs 6 boxes with 15 eggs each. He sells 47 eggs. How many eggs are left?",
+            "expected": "43",
+            "success": false,
+            "closed": false,
+            "correct": false,
+            "new_tokens": 1024,
+            "reason": "did not close thinking"
+          },
+          {
+            "prompt": "Lily reads 24 pages a day. How many pages does she read in 3 weeks?",
+            "expected": "504",
+            "success": false,
+            "closed": false,
+            "correct": false,
+            "new_tokens": 1024,
+            "reason": "did not close thinking"
+          },
+          {
+            "prompt": "A garden is 7 m long and 6 m wide. What is its area in square m?",
+            "expected": "42",
+            "success": false,
+            "closed": false,
+            "correct": false,
+            "new_tokens": 1024,
+            "reason": "did not close thinking"
+          },
+          {
+            "prompt": "A bus travels 45 km per hour for 2 hours, then travels 30 km more. How far did it travel in total, in km?",
+            "expected": "120",
+            "success": false,
+            "closed": false,
+            "correct": false,
+            "new_tokens": 1024,
+            "reason": "did not close thinking"
+          },
+          {
+            "prompt": "Mia earns $12 per hour and works 4 hours a day, 6 days a week. How much does she earn in a week, in dollars?",
+            "expected": "288",
+            "success": false,
+            "closed": false,
+            "correct": false,
+            "new_tokens": 1024,
+            "reason": "did not close thinking"
+          },
+          {
+            "prompt": "A store sells pencils for $2 each. Tom buys 9 pencils and pays with $20. How much change does he get, in dollars?",
+            "expected": "2",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 648,
+            "reason": "closed with correct final answer"
+          },
+          {
+            "prompt": "What is the capital of Italy? Answer in one sentence.",
+            "expected": "Rome",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 960,
+            "reason": "closed with correct final answer"
+          },
+          {
+            "prompt": "What colour is a ripe banana? Answer in one sentence.",
+            "expected": "yellow",
+            "success": false,
+            "closed": false,
+            "correct": false,
+            "new_tokens": 1024,
+            "reason": "did not close thinking"
+          }
+        ]
+      },
+      "breakage": {
+        "regressions": [],
+        "regression_count": 0,
+        "per_prompt": [
+          {
+            "prompt": "Ben has 2 boxes with 18 stickers each, plus 4 loose stickers. How many stickers does he have in total?",
+            "expected": "40",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 790,
+            "reason": "closed with correct final answer"
+          },
+          {
+            "prompt": "There are 36 chairs. Each row seats 4 chairs. How many rows are needed?",
+            "expected": "9",
+            "success": false,
+            "closed": false,
+            "correct": false,
+            "new_tokens": 1024,
+            "reason": "did not close thinking"
+          },
+          {
+            "prompt": "A shelf has 4 rows with 13 books each. 7 books fall off. How many books are left?",
+            "expected": "45",
+            "success": false,
+            "closed": false,
+            "correct": false,
+            "new_tokens": 1024,
+            "reason": "did not close thinking"
+          },
+          {
+            "prompt": "What is 3 + 4? Answer with just the number.",
+            "expected": "7",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 168,
+            "reason": "closed with correct final answer"
+          },
+          {
+            "prompt": "What is the capital of Spain? Answer in one sentence.",
+            "expected": "Madrid",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 525,
+            "reason": "closed with correct final answer"
+          },
+          {
+            "prompt": "What is 9 + 6? Answer with just the number.",
+            "expected": "15",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 157,
+            "reason": "closed with correct final answer"
+          },
+          {
+            "prompt": "How many months are in a year? Answer with just the number.",
+            "expected": "12",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 163,
+            "reason": "closed with correct final answer"
+          },
+          {
+            "prompt": "What colour is snow on a sunny day? Answer in one sentence.",
+            "expected": "white",
+            "success": true,
+            "closed": true,
+            "correct": true,
+            "new_tokens": 262,
+            "reason": "closed with correct final answer"
+          }
+        ]
+      },
+      "verdict": {
+        "kill_p1_pass": false,
+        "kill_p2_pass": true,
+        "passes_both": false
+      },
+      "environment": {
+        "model_id": "Qwen/Qwen3.5-0.8B",
+        "cuda_available": true,
+        "device": "cuda",
+        "gpu_name": "Tesla T4",
+        "torch_version": "2.11.0+cu130",
+        "transformers_version": "5.20.2",
+        "accelerate_version": "1.15.0",
+        "max_tokens": 1024
+      },
+      "sampling": {
+        "do_sample": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5
+      }
+    }
+  ],
+  "not_evaluated": [],
+  "total_weights": 752393024,
+  "layers_path": "model.layers",
+  "layer15_down_proj_shape": [
+    1024,
+    3584
+  ],
+  "token_resolution": {
+    "prompt": "Sara has 3 boxes with 14 pencils each, plus 5 loose pencils. How many pencils does she have in total?",
+    "closed": true,
+    "correct": true,
+    "new_tokens": 666,
+    "convert_tokens_to_ids": 248069,
+    "encode": [
+      248069
+    ],
+    "resolved_id": 248069
+  },
+  "baseline": {
+    "target": [
+      {
+        "prompt": "Emma has 31 marbles. She loses 9 and buys 12 more. How many marbles does she have now?",
+        "expected": "34",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "A farmer packs 6 boxes with 15 eggs each. He sells 47 eggs. How many eggs are left?",
+        "expected": "43",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "Lily reads 24 pages a day. How many pages does she read in 3 weeks?",
+        "expected": "504",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 784,
+        "reason": "closed with correct final answer"
+      },
+      {
+        "prompt": "A garden is 7 m long and 6 m wide. What is its area in square m?",
+        "expected": "42",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "A bus travels 45 km per hour for 2 hours, then travels 30 km more. How far did it travel in total, in km?",
+        "expected": "120",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "Mia earns $12 per hour and works 4 hours a day, 6 days a week. How much does she earn in a week, in dollars?",
+        "expected": "288",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 783,
+        "reason": "closed with correct final answer"
+      },
+      {
+        "prompt": "A store sells pencils for $2 each. Tom buys 9 pencils and pays with $20. How much change does he get, in dollars?",
+        "expected": "2",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 585,
+        "reason": "closed with correct final answer"
+      },
+      {
+        "prompt": "What is the capital of Italy? Answer in one sentence.",
+        "expected": "Rome",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "What colour is a ripe banana? Answer in one sentence.",
+        "expected": "yellow",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      }
+    ],
+    "breakage": [
+      {
+        "prompt": "Ben has 2 boxes with 18 stickers each, plus 4 loose stickers. How many stickers does he have in total?",
+        "expected": "40",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "There are 36 chairs. Each row seats 4 chairs. How many rows are needed?",
+        "expected": "9",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "A shelf has 4 rows with 13 books each. 7 books fall off. How many books are left?",
+        "expected": "45",
+        "success": false,
+        "closed": false,
+        "correct": false,
+        "new_tokens": 1024,
+        "reason": "did not close thinking"
+      },
+      {
+        "prompt": "What is 3 + 4? Answer with just the number.",
+        "expected": "7",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 216,
+        "reason": "closed with correct final answer"
+      },
+      {
+        "prompt": "What is the capital of Spain? Answer in one sentence.",
+        "expected": "Madrid",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 246,
+        "reason": "closed with correct final answer"
+      },
+      {
+        "prompt": "What is 9 + 6? Answer with just the number.",
+        "expected": "15",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 175,
+        "reason": "closed with correct final answer"
+      },
+      {
+        "prompt": "How many months are in a year? Answer with just the number.",
+        "expected": "12",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 153,
+        "reason": "closed with correct final answer"
+      },
+      {
+        "prompt": "What colour is snow on a sunny day? Answer in one sentence.",
+        "expected": "white",
+        "success": true,
+        "closed": true,
+        "correct": true,
+        "new_tokens": 280,
+        "reason": "closed with correct final answer"
+      }
+    ]
+  },
+  "baseline_summary": {
+    "target": 3,
+    "breakage": 5
+  },
+  "direction": {
+    "self_check_tokens": 17,
+    "other_tokens": 1007,
+    "direction_norm": 1.1279296875,
+    "direction_dtype": "torch.float16",
+    "maria_tokens": 1024
+  },
+  "lm_head": {
+    "path": "model.lm_head",
+    "think_token_id": 248069,
+    "alpha": 0.08656479646322786,
+    "tied": true
+  }
+}

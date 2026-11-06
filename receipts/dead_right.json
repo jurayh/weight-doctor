@@ -1,0 +1,135 @@
+{
+  "breakage_battery": {
+    "failing_after_edit": [],
+    "total": 309
+  },
+  "case_id": "dead_right",
+  "case_title": "Policy has a dead RIGHT action",
+  "diagnoses": [
+    {
+      "cause": "Output row for RIGHT is zero and its bias is -5, so RIGHT can never win argmax.",
+      "diff_size": 13,
+      "evidence": {
+        "action": "RIGHT",
+        "bias": -5.0,
+        "wout_row_norm": 0.0
+      },
+      "fault": "dead_action_right"
+    }
+  ],
+  "diff": {
+    "changed": 13,
+    "entries": [
+      {
+        "after": 2.0,
+        "before": 0.0,
+        "col": 0,
+        "matrix": "Wout",
+        "row": 0
+      },
+      {
+        "after": 2.0,
+        "before": 0.0,
+        "col": 4,
+        "matrix": "Wout",
+        "row": 0
+      },
+      {
+        "after": 2.0,
+        "before": 0.0,
+        "col": 12,
+        "matrix": "Wout",
+        "row": 0
+      },
+      {
+        "after": 2.0,
+        "before": 0.0,
+        "col": 16,
+        "matrix": "Wout",
+        "row": 0
+      },
+      {
+        "after": 2.0,
+        "before": 0.0,
+        "col": 24,
+        "matrix": "Wout",
+        "row": 0
+      },
+      {
+        "after": 2.0,
+        "before": 0.0,
+        "col": 28,
+        "matrix": "Wout",
+        "row": 0
+      },
+      {
+        "after": 1.0,
+        "before": 0.0,
+        "col": 36,
+        "matrix": "Wout",
+        "row": 0
+      },
+      {
+        "after": 1.0,
+        "before": 0.0,
+        "col": 40,
+        "matrix": "Wout",
+        "row": 0
+      },
+      {
+        "after": 1.0,
+        "before": 0.0,
+        "col": 48,
+        "matrix": "Wout",
+        "row": 0
+      },
+      {
+        "after": 1.0,
+        "before": 0.0,
+        "col": 52,
+        "matrix": "Wout",
+        "row": 0
+      },
+      {
+        "after": 1.0,
+        "before": 0.0,
+        "col": 60,
+        "matrix": "Wout",
+        "row": 0
+      },
+      {
+        "after": 1.0,
+        "before": 0.0,
+        "col": 64,
+        "matrix": "Wout",
+        "row": 0
+      },
+      {
+        "after": 0.0,
+        "before": -5.0,
+        "col": null,
+        "matrix": "bout",
+        "row": 0
+      }
+    ],
+    "fraction_changed": 0.0006307005627789637,
+    "l2_norm": 7.416198487095663,
+    "linf": 5.0,
+    "total_params": 20612
+  },
+  "fixed": true,
+  "ground_truth_cause": "The RIGHT output row is zeroed and its bias is -5, so RIGHT can never win argmax; any goal east of the start is unreachable.",
+  "minimality_within_bars": true,
+  "model_hashes": {
+    "broken_sha256": "29a3751ae0a47e5f51ddfc5e51704e36c11aab271006ebcd8209185d27601f29",
+    "edited_sha256": "520c4736d8ac4f327f38c6ae012b92fcc2e38e83a78c0b4504982f61c123d5f7"
+  },
+  "schema_version": "1",
+  "scope": "TOY ONLY: 3x3 grid MLP, 20,612 parameters. Not a claim about any larger model.",
+  "target_battery": {
+    "failing_after_edit": [],
+    "passing_before_edit": 0,
+    "total": 195
+  },
+  "version": "0.1.0"
+}
