@@ -30,12 +30,16 @@ These bars are also enforced in code (`verifier.py`).
 
 ## Kill 3 — LLM doctor must beat the scripted baseline, or the claim goes
 
-NOT RUN in the $0 core. The LLM-doctor interface is defined in
-`weight_doctor/llm_doctor.py`, but running it against a paid API
-needs an estimate-first approval under the standing paid-model
-rule, and no such approval has been given. Until that run happens,
-kill 3 is UNTESTED: the harness stands, the LLM-doctor claim does
-not. It is not passed, and it is not failed; it is owed.
+**FAIL — as a tie.** Run Nov 6, 2026, under the pre-registered bar
+in `KILL3_PLAN.md` (fix 4/4 with strictly fewer than the scripted
+doctor's 41 weights). The LLM doctor fixed 4/4 with zero
+regressions, first try on every case, with diffs identical to the
+scripted repairs — total exactly 41 weights. That is a match, not
+a beat, so the kill fails and the LLM-doctor claim goes. The
+repairs are the unique minimal schema restorations on this toy,
+so the bar was near-unattainable; the run measured that. Full
+record: `KILL3_PLAN.md`, `reports/kill3_results.json`. Total paid
+spend on Kill 3: ~$0.005, inside the $0.10 cap.
 
 ## Kill 4 — no scale claims leave the toy room
 

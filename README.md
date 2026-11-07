@@ -106,11 +106,17 @@ in code (`weight_doctor/verifier.py`).
 - **Kill 1 (fix ≥3/4 with zero regressions): PASS — 4/4 fixed.**
 - **Kill 2 (surgical: ≤2% of weights, L2 ≤20): PASS** — largest
   edit is 18 weights (0.0873%) and the largest L2 is 10.00.
-- **Kill 3 (LLM doctor beats scripted baseline): UNTESTED.** The
-  interface is defined in `weight_doctor/llm_doctor.py`, but running
-  it against a paid API needs an estimate-first approval, which has
-  not been given. The harness stands; the LLM-doctor claim does not.
-  It is not passed and not failed; it is owed.
+- **Kill 3 (LLM doctor beats scripted baseline): FAIL, as a tie.**
+  Run Nov 6, 2026, on `muse-spark-1.3-contributor` (~$0.005 total,
+  inside the $0.10 cap). The LLM doctor fixed 4/4 with zero
+  regressions, first try on every case, with diffs identical to the
+  scripted repairs — 41 weights total, exactly the scripted total.
+  The pre-registered bar required strictly fewer, so the kill fails
+  and the LLM-doctor claim goes. The repairs are the unique minimal
+  schema restorations on this toy, so the bar was near-unattainable;
+  the match itself is the finding. Full record in
+  [`KILL3_PLAN.md`](KILL3_PLAN.md) and
+  [`reports/kill3_results.json`](reports/kill3_results.json).
 - **Kill 4 (no scale claims leave the toy room): PASS** — the
   Phase 1 receipts are labeled toy-only, and the Phase 2 results
   are labeled Qwen3.5-0.8B only (see the Phase 2 section above).
@@ -186,12 +192,12 @@ found in this run.
 
 **Kills.** P1 (≥5/9, zero regressions) and P2 (≤0.1% of weights,
 layer-limited) pass via C6, exactly at the bar. P3 (LLM doctor
-beats the scripted baseline) is **untested** — the interface exists
-(`weight_doctor/llm_doctor.py`), no paid model API use has been
-approved or run. P4 (no scale claims) holds: every result here is
-labelled Qwen3.5-0.8B, thinking mode, Kaggle T4, this sampling,
-this battery. Full detail in
-[`PHASE2_PIVOT_RESULTS.md`](PHASE2_PIVOT_RESULTS.md).
+beats the scripted baseline) is **tested and failed, as a tie**
+— see the Kill 3 section above: the LLM matched the scripted
+baseline exactly (4/4, 41 weights) but did not beat it. P4 (no
+scale claims) holds: every result here is labelled Qwen3.5-0.8B,
+thinking mode, Kaggle T4, this sampling, this battery. Full detail
+in [`PHASE2_PIVOT_RESULTS.md`](PHASE2_PIVOT_RESULTS.md).
 
 ## Run it
 
