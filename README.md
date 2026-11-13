@@ -181,6 +181,13 @@ on the frozen battery), and C6 fails both one-sentence controls
 on the held-out battery. It generalises as a math-closure effect,
 not a general closure effect.
 
+**Hard-problem probe (Nov 12).** On 9 multi-step problems C6 scored
+**0/9** — not by closing too early, but by not closing at all (all 9
+hit the 1024-token cap), while thinking-off scored 7/9. The model
+derives the answer in thinking on all 9 and never stops. So the
+generalisation claim narrows: C6 forces closure on easy math
+problems only.
+
 **What C6 is, plainly.** It is the "forces closure" candidate: it
 biases the model toward emitting `</think>`. It does not remove
 the self-check loop, and it passes exactly at the bar. Its lm_head

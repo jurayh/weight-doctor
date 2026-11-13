@@ -185,18 +185,88 @@ the run reproduced the Stage 2 environment exactly
 tokens, norm 1.128) and C6's alpha identical
 (0.0866).
 
+## Hard-problem probe (Nov 12, 2026)
+
+Question: does C6 generalise to problems where the
+thinking does real work? Battery: 9 multi-step
+problems, frozen Nov 7 in C6_HARD_PROBE_PLAN.md,
+plus a control (C6 on the original 9 targets) and a
+thinking-off diagnostic on the same 9 hard problems.
+Decision rule frozen before the run: H = C6
+close+correct on hard, T = thinking-off accuracy on
+hard; extends iff H >= 5/9 and H >= T; hurts iff
+H < T; partial otherwise. Results in
+kaggle/phase2-pivot/hard-probe-results/.
+
+- Baseline, thinking ON, hard battery: 0/9
+  (non-termination, as expected).
+- Thinking-OFF, hard battery: 7/9. The model can do
+  these problems without thinking; its two failures
+  are dropped-step errors (H5 forgets the 18 apples
+  given away, H9 forgets the 14 baking eggs).
+- C6 control (original targets): 5/9 — the setup
+  gate passed, so the run is comparable.
+- C6, hard battery: 0/9.
+
+Verdict by the frozen rule: H = 0 < T = 7, so
+FORCING CLOSURE HURTS, and the generalisation claim
+narrows to easy problems.
+
+The mechanism matters more than the label. C6 did
+not fail by closing too early and producing wrong
+answers. It failed by not closing at all: all 9 hard
+prompts hit the 1024-token cap with the model still
+second-guessing (the raw tails show it still
+re-interpreting the problem at the cap). The bias
+that closes easy thinking cannot overcome the
+longer, more involved self-checking on hard
+problems. And the model does derive the answer in
+thinking on all 9 hard problems — the
+first-appearance analysis finds the expected answer
+in the unedited traces at tokens 336-922 — it just
+never stops. So the narrowing is stronger than
+"closes too early": on hard problems C6 does not
+close at all. C6 is no worse than the unedited model
+here (both 0/9 by non-termination), but much worse
+than thinking-off (7/9): on hard problems, thinking
+mode itself is the failure, and C6 does not rescue
+it.
+
+Verification, stated plainly: every stored flag was
+recomputed independently from the saved raw outputs
+and matches (this probe saved raw outputs, unlike
+the generalisation probe); both receipts match the
+results JSON exactly; the environment is identical
+to the generalisation probe (torch 2.11.0,
+transformers 5.20.2, accelerate 1.15.0) and C6's
+alpha is identical (0.0866, tied). The first-
+appearance token indices could not be re-derived
+without the tokenizer (not installed locally), but
+their consistency was checked from text: the
+expected answer appears in the thinking portion of
+every baseline trace, matching the stored
+non-None first-appearance values, and every C6
+close token is None exactly where the row is
+unclosed.
+
+What this leaves open: a stronger forcing (larger
+alpha, or a bias that grows with thinking length)
+is untested — but it would need its own plan, since
+a larger alpha is a new candidate, not a re-run
+of C6.
+
 ## What is still open
 
 - Kill P3 (LLM doctor beats the scripted baseline):
-  untested, needs a separate estimate-first paid-API
-  approval. Nothing in this run touches it.
+  tested Nov 6 and FAILED as a tie (see KILL3_PLAN.md).
+  Nothing in this run touches it.
 - Whether a selective mechanism-level fix exists:
   no candidate in this run found one. Direction
   0.5, the closest near-miss on the frozen battery,
   fell to 2/9 on the held-out battery, so it is no
   longer the leading follow-up.
-- C6's generalisation is now established for this
-  failure mode on two batteries, with the
-  prompt-type caveat above. Any claim beyond that
-  (other models, other failure modes) is still
-  untested.
+- C6's generalisation is now established for easy
+  math problems on two batteries, and narrowed by
+  the hard probe: on multi-step problems C6 does not
+  close at all. Any claim beyond that (other models,
+  other failure modes) is still untested.
