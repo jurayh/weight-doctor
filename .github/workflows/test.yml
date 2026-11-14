@@ -1,0 +1,26 @@
+name: Toy tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  toy-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        # numpy is the only third-party import on the toy-test path
+        # (weight_doctor/catalog.py, doctor.py, llm_doctor.py,
+        # policy.py). Pinned to the version verified locally.
+        run: pip install numpy==1.26.4
+      - name: Run toy tests
+        run: |
+          python3 tests/test_weight_doctor.py
+          python3 tests/test_llm_doctor.py
